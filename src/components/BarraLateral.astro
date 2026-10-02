@@ -1,0 +1,14 @@
+---
+import { perfil } from '../config';
+import Icono from './Icono.astro';
+---
+<aside class="barra">
+  <div class="foto" aria-hidden="true">{perfil.iniciales}</div>
+  <p class="nombre">{perfil.nombre}</p>
+  <p class="institucion"><Icono nombre="institucion" size={20} /> {perfil.institucion}</p>
+  <p class="descripcion">{perfil.descripcion}</p>
+  <div class="redes">
+    <a href={perfil.enlaces.linkedin} aria-label="LinkedIn"><Icono nombre="linkedin" /></a>
+    <a href={perfil.enlaces.github} aria-label="GitHub"><Icono nombre="github" /></a>
+  </div>
+</aside>

@@ -1,0 +1,21 @@
+---
+const secciones = [
+  { texto: 'About', href: '/' },
+  { texto: 'Projects', href: '/projects' },
+  { texto: 'CV', href: '/cv' },
+];
+
+const ruta = Astro.url.pathname;
+const esActiva = (href: string) => (href === '/' ? ruta === '/' : ruta.startsWith(href));
+---
+<nav class="menu" aria-label="Main">
+  {secciones.map((s) => (
+    <a
+      href={s.href}
+      class:list={[{ activa: esActiva(s.href) }]}
+      aria-current={esActiva(s.href) ? 'page' : undefined}
+    >
+      {s.texto}
+    </a>
+  ))}
+</nav>

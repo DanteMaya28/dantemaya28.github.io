@@ -1,14 +1,22 @@
 ---
-const nombre = "Dante Alejandro Maya Guerra";
-const carrera = "Lic. en Economía, UANL";
+import Base from '../layouts/Base.astro';
+import { perfil } from '../config';
 ---
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>{nombre}</title>
-  </head>
-  <body>
-    <h1>{nombre}</h1>
-    <p>Estudiante de {carrera}</p>
-  </body>
-</html>
+<Base titulo="About">
+  <h1>About me</h1>
+<p>
+  I'm {perfil.nombreCompleto}, an economics student at the Universidad Autónoma
+  de Nuevo León (UANL). I have a strong interest in applying data analysis to finance.
+  I work mainly with Excel, Power BI, R, and Python, which I use to model, analyze,
+  and visualize financial data.
+</p>
+  <h2>My interests</h2>
+  <ul>
+    <li>Data analysis applied to finance</li>
+    <li>Technical and fundamental analysis for investment portfolios</li>
+    <li>Econometric models and causal inference</li>
+  </ul>
+<p>
+  Based in Monterrey, Mexico. See my <a href="/cv">CV</a> or browse my <a href="/projects">projects</a>.
+</p>
+  </Base> 

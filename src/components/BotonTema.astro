@@ -1,0 +1,20 @@
+---
+import Icono from './Icono.astro';
+---
+<button id="boton-tema" class="boton-tema" type="button" aria-label="Switch between light and dark theme">
+  <span class="icono-sol"><Icono nombre="sol" size={20} /></span>
+  <span class="icono-luna"><Icono nombre="luna" size={20} /></span>
+</button>
+
+<script>
+  const boton = document.getElementById('boton-tema');
+
+  boton?.addEventListener('click', () => {
+    const raiz = document.documentElement;
+    const nuevo = raiz.dataset.tema === 'claro' ? 'oscuro' : 'claro';
+    raiz.dataset.tema = nuevo;
+    try {
+      localStorage.setItem('tema', nuevo);
+    } catch {}
+  });
+</script>

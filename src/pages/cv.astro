@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+const proyectos = [
+  {
+    titulo: '2026 Trade Balance Forecast',
+    slug: 'trade-balance-forecast-2026',
+    resumen: 'Built SARIMAX and VAR models in R using time series data from Banco de México, applying white-noise (Box-Ljung), homoscedasticity, stationarity (ADF), and structural-break (Chow test, COVID-19) tests to validate the assumptions required for unbiased, consistent, and efficient estimates.',
+  },
+  {
+    titulo: 'Profitability Analysis of the Felipe Ángeles International Airport (AIFA)',
+    slug: 'aifa-profitability-analysis',
+    resumen: "Developed an incremental cash flow analysis projected from the airport's construction through 2052, calculating the Net Present Value to assess the project's financial profitability.",
+  },
+  {
+    titulo: 'Impact of Educational Subsidies on GDP Growth in Mexico',
+    slug: 'education-subsidies-gdp-growth',
+    resumen: 'Modeled the effect of monetary transfers to education on GDP growth using a log-level time series regression, with data from INEGI ENOE, the World Bank, and SHCP Ramo 33.',
+  },
+  {
+    titulo: 'Impact of Insurer Withdrawal on the Credit Market (United States)',
+    slug: 'insurer-withdrawal-credit-market',
+    resumen: 'Collected and cleaned county-level panel data (2018–2024) from NAIC and FIO on municipal bond spreads and insurer withdrawal to analyze their relationship with credit market stress.',
+  },
+];
+
+const educacion = [
+  {
+    titulo: 'B.A. in Economics',
+    institucion: 'Universidad Autónoma de Nuevo León (UANL)',
+    periodo: '2023 – 2027',
+  },
+];
+
+const experiencia = [
+  {
+    puesto: 'Independent Trader',
+    organizacion: 'Personal account',
+    periodo: '2023 – Present',
+    logros: [
+      'Traded the S&P 500 and Nasdaq 100 indices, as well as futures contracts.',
+      'Used technical analysis tools to determine entry and exit points.',
+      'Monitored market information sources such as Yahoo Finance and Forex Factory to track economic data and relevant event calendars for decision-making.',
+    ],
+  },
+  {
+    puesto: 'Director of Entrepreneurship',
+    organizacion: 'Instituto Mexicano de Ejecutivos de Finanzas Universitario',
+    periodo: '2024 – 2025',
+    logros: [
+      'Organized conferences with entrepreneurs and business leaders at the federal level to connect the university community with the real business environment.',
+      'Identified, through direct networking, the main challenges faced by SMEs and proposed applicable solutions to their operational and financial issues.',
+    ],
+  },
+];
+
+const habilidades = [
+  { area: 'Data analysis and modeling', herramientas: 'Python, R, Stata' },
+  { area: 'Database management', herramientas: 'Excel, SQL' },
+  { area: 'Financial data collection', herramientas: 'Economatica' },
+  { area: 'Financial statement preparation and analysis', herramientas: 'Excel' },
+  { area: 'Results reporting', herramientas: 'Power BI' },
+  { area: 'Languages', herramientas: 'Spanish (native), English (C1)' },
+];
+---
+<Base titulo="CV" descripcion="Curriculum vitae: academic projects, education, experience, and skills.">
+  <div class="cv">
+    <h1>Curriculum Vitae</h1>
+
+    <h2>Academic projects</h2>
+    {proyectos.map((p) => (
+      <div class="cv-item">
+        <h3><a href={`/projects/${p.slug}`}>{p.titulo}</a></h3>
+        <p>{p.resumen}</p>
+      </div>
+    ))}
+
+    <h2>Education</h2>
+    {educacion.map((e) => (
+      <div class="cv-item">
+        <div class="cv-encabezado">
+          <h3>{e.titulo}</h3>
+          <span class="cv-periodo">{e.periodo}</span>
+        </div>
+        <p>{e.institucion}</p>
+      </div>
+    ))}
+
+    <h2>Experience</h2>
+    {experiencia.map((x) => (
+      <div class="cv-item">
+        <div class="cv-encabezado">
+          <h3>{x.puesto}</h3>
+          <span class="cv-periodo">{x.periodo}</span>
+        </div>
+        <p>{x.organizacion}</p>
+        <ul>
+          {x.logros.map((l) => <li>{l}</li>)}
+        </ul>
+      </div>
+    ))}
+
+    <h2>Skills</h2>
+    <ul>
+      {habilidades.map((h) => <li><strong>{h.area}:</strong> {h.herramientas}</li>)}
+    </ul>
+  </div>
+</Base>
